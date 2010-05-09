@@ -1,13 +1,17 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-gen_path = File.expand_path('../lib', __FILE__)
-$:.unshift(gen_path) if File.directory?(gen_path) && !$:.include?(gen_path)
 
-local_path = Dir.pwd
-$:.unshift(local_path) if File.directory?(local_path) && !$:.include?(local_path)
+lib_dir = File.expand_path(File.join(File.dirname(__FILE__),'..','lib'))
+unless $LOAD_PATH.include?(lib_dir)
+  $LOAD_PATH << lib_dir
+end
 
 require 'iphone_mvc'
 require 'iphone_mvc/generators/app'
 
-# We need our config boot because we need to load registered generators so:
-Padrino::Generators::App.start(ARGV)
+begin
+  IphoneMvc::Generators::App.start(ARGV)
+rescue => e
+  STDERR.puts "mvc-gen: unknown generator #{e}"
+  exit -1
+end

@@ -1,3 +1,5 @@
+require 'active_support' 
+
 module IphoneMvc
   ##
   # This method return the correct location of mvc-gen bin or

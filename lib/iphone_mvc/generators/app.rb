@@ -1,3 +1,7 @@
+require 'thor'
+require 'thor/group'
+require 'thor/actions'
+
 module IphoneMvc
   module Generators
 
@@ -12,7 +16,6 @@ module IphoneMvc
 
       # Include related modules
       include Thor::Actions
-      include IphoneMvc::Generators::Actions
 
       desc "Description:\n\n\tmvc-gen app generates a new PureMvc application for iphone"
 
@@ -22,15 +25,34 @@ module IphoneMvc
       class_option :destroy, :aliases => '-d', :default => false,   :type    => :boolean
 
       # Show help if no argv given
-      require_arguments!
+      #require_arguments!
+      
+      def in_app_root?
+        File.exist?('Classes')
+      end     
 
       def create_app
         self.destination_root = options[:root]
         @class_name = name.gsub(/\W/, "_").underscore.classify
         if in_app_root?
-          directory("Classes/", destination_root(name))
+          #directory("Classes/", destination_root(name))
 
-          return if self.behavior == :revoke
+          #return if self.behavior == :revoke
+          template "ApplicationFacade.h.tt", "Classes/ApplicationFacade.h" 
+          template "ApplicationFacade.m.tt", "Classes/ApplicationFacade.m" 
+          directory "controllers/", "Classes/controllers/" 
+          directory "models/", "Classes/models/" 
+          directory "models/enum/", "Classes/models/enum/" 
+          directory "models/vo/", "Classes/models/vo/" 
+          directory "views/", "Classes/views/" 
+          directory "views/components/", "Classes/views/components/" 
+          directory "utils/", "Classes/utils/"  
+          copy_file "utils/NSStringWhiteSpace.h", "Classes/utils/NSStringWhiteSpace.h"
+          copy_file "utils/NSStringWhiteSpace.m", "Classes/utils/NSStringWhiteSpace.m"   
+          copy_file "utils/UIDevice.h", "Classes/utils/UIDevice.h"  
+          copy_file "utils/UIDevice.m", "Classes/utils/UIDevice.m" 
+          copy_file "utils/URLEncodeString.h", "Classes/utils/URLEncodeString.h"  
+          copy_file "utils/URLEncodeString.m", "Classes/utils/URLEncodeString.m"    
           say (<<-TEXT).gsub(/ {10}/,'')
 
           =================================================================
