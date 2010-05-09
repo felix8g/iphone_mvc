@@ -4,7 +4,7 @@ module IphoneMvc
   # exec it using Kernel#system with the given args
   #
   def self.bin_gen(*args)
-    @_mvc_gen_bin ||= [IphoneMvc.ruby_command, File.expand_path("../../bin/mvc-gen", __FILE__)]
+    @_mvc_gen_bin ||= [IphoneMvc.ruby_command, File.expand_path("../bin/mvc-gen", __FILE__)]
     args.empty? ? @_mvc_gen_bin : system(args.unshift(@_mvc_gen_bin).join(" "))
   end
 
@@ -39,9 +39,9 @@ module IphoneMvc
       end
     end
   end # Generators
-end # Padrino
+end # IphoneMvc
 
 ##
-# We add our generators to Padrino::Genererator
+# We add our generators to IphoneMvc::Genererator
 #
 IphoneMvc::Generators.load_paths << Dir[File.dirname(__FILE__) + '/iphone_mvc/generators/app.rb']

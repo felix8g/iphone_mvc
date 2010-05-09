@@ -10,10 +10,16 @@ begin
     gem.email = "felix8g@gmail.com"
     gem.homepage = "http://github.com/felix8g/iphone_mvc"
     gem.authors = ["felix8g"]
+    gem.executables = ["mvc-gen"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_development_dependency "mocha",         ">= 0.9.7"
+    gem.add_development_dependency "rack-test",     ">= 0.5.0"
+    gem.add_development_dependency "webrat",        ">= 0.5.1"
+    gem.add_development_dependency "fakeweb",       ">= 1.2.3"    
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
+  Jeweler::RubyforgeTasks.new { |r| r.doc_task = :none }
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end

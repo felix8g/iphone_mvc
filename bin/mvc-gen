@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-gen_path = File.expand_path('../../lib', __FILE__)
+gen_path = File.expand_path('../lib', __FILE__)
 $:.unshift(gen_path) if File.directory?(gen_path) && !$:.include?(gen_path)
 
 local_path = Dir.pwd
