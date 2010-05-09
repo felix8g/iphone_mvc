@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+gen_path = File.expand_path('../../lib', __FILE__)
+$:.unshift(gen_path) if File.directory?(gen_path) && !$:.include?(gen_path)
+
+local_path = Dir.pwd
+$:.unshift(local_path) if File.directory?(local_path) && !$:.include?(local_path)
+
+require 'iphone_mvc'
+require 'iphone_mvc/generators/app'
+
+# We need our config boot because we need to load registered generators so:
+Padrino::Generators::App.start(ARGV)

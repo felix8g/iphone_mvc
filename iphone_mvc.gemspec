@@ -10,8 +10,10 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["felix8g"]
   s.date = %q{2010-05-09}
-  s.description = %q{TODO: longer description of your gem}
+  s.default_executable = %q{mvc-gen}
+  s.description = %q{generate a puremvc framework skeleton files for writing iphone app}
   s.email = %q{felix8g@gmail.com}
+  s.executables = ["mvc-gen"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -33,7 +35,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{puremvc iphone application generator}
   s.test_files = [
     "spec/iphone_mvc_spec.rb",
      "spec/spec_helper.rb"

@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "iphone_mvc"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{puremvc iphone application generator}
+    gem.description = %Q{generate a puremvc framework skeleton files for writing iphone app}
     gem.email = "felix8g@gmail.com"
     gem.homepage = "http://github.com/felix8g/iphone_mvc"
     gem.authors = ["felix8g"]
