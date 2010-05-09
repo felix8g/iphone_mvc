@@ -1,6 +1,6 @@
 = iphone_mvc
 
-Description goes here.
+Generate iphone application skeleton files layout by PureMVC framework.
 
 == Note on Patches/Pull Requests
  
