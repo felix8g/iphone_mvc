@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "iphone_mvc.gemspec",
      "lib/iphone_mvc.rb",
      "spec/iphone_mvc_spec.rb",
      "spec/spec.opts",
